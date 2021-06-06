@@ -29,47 +29,49 @@ git clone https://github.com/jdvfx/dotfiles.git
 git clone https://github.com/jdvfx/autoconf-ubu20.04.git
 git clone http://git.suckless.org/st
 
-echo "copy bashrc and update"
+echo ">>> copy bashrc and update"
 sleep 2
 cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc ~/
 source ~/.bashrc
 
-echo "set wallpaper"
-sleep 2
-cd ~/Desktop/gitclones/autoconf-ubu20.04
-bash setwallpaper.sh
-
-echo "install fonts"
+echo ">>> install fonts"
 sleep 2
 bash install_fonts.sh
 
-echo "install Nomachine and OpenFortiVPN"
+echo ">>> install Nomachine and OpenFortiVPN"
 sleep 2
 bash install_nomachine_and_openfortivpn.sh
 
 
-echo "Neovim Config"
+echo ">>> Neovim Config"
 sleep 2
 mkdir ~/.config/nvim
 cp ~/Desktop/gitclones/dotfiles/nvim/* ~/.config/nvim/
 
-echo "Xmonad Config"
+echo ">>> Xmonad Config"
 sleep 2
 mkdir ~/.xmonad/
 cp -r ~/Desktop/gitclones/dotfiles/xmonad/* ~/.xmonad/
+cp -r ~/Desktop/gitclones/dotfiles/xmonad/dot_local_slash_bin/ ~/.local/bin/
 
-echo "Xmobar Config"
+echo ">>> Xmobar Config"
 sleep 2
 cp ~/Desktop/gitclones/dotfiles/xmobar/.xmobarrc ~/
 
-echo "ST Config, build, install"
+echo ">>> ST Config, build, install"
 sleep 2
 cp ~/Desktop/gitclones/dotfiles/st/* ~/Desktop/gitclones/st/
 cd ~/Desktop/gitclones/st/
 sudo make
 sudo make install
 
+echo ">>> set wallpaper"
+sleep 2
+cd ~/Desktop/gitclones/autoconf-ubu20.04
+bash setwallpaper.sh
 
+echo ">>> install Brave Browser"
+bash install_brave.sh
 
 
 echo " ##################"
