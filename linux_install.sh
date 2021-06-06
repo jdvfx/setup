@@ -1,6 +1,4 @@
 #
-
-
 # get rid of snap
 echo ">>> removing SNAP!"
 sleep 2
@@ -15,8 +13,8 @@ sudo apt-get install curl -y
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
-INSTALL_PKGS="git firefox htop feh curl neovim xmonad libghc-xmonad-contrib-dev dmenu build-essential gnome-disk-utility xmobar scrot spotify-client autoconf libssl-dev"
-echo -e ">>>installing packages:"
+INSTALL_PKGS="git firefox htop feh curl neovim xmonad libghc-xmonad-contrib-dev dmenu build-essential gnome-disk-utility xmobar scrot spotify-client autoconf libssl-dev gedit"
+echo ">>>installing packages:"
 echo $INSTALL_PKGS
 sleep 2
 for i in $INSTALL_PKGS; do
@@ -31,6 +29,52 @@ git clone https://github.com/jdvfx/dotfiles.git
 git clone https://github.com/jdvfx/autoconf-ubu20.04.git
 git clone http://git.suckless.org/st
 
+echo "copy bashrc and update"
+sleep 2
+cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc ~/
+source ~/.bashrc
+
+echo "set wallpaper"
+sleep 2
+cd ~/Desktop/gitclones/autoconf-ubu20.04
+bash setwallpaper.sh
+
+echo "install fonts"
+sleep 2
+bash install_fonts.sh
+
+echo "install Nomachine and OpenFortiVPN"
+sleep 2
+bash install_nomachine_and_openfortivpn.sh
+
+
+echo "Neovim Config"
+sleep 2
+mkdir ~/.config/nvim
+cp ~/Desktop/gitclones/dotfiles/nvim/* ~/.config/nvim/
+
+echo "Xmonad Config"
+sleep 2
+mkdir ~/.xmonad/
+cp -r ~/Desktop/gitclones/dotfiles/xmonad/* ~/.xmonad/
+
+echo "Xmobar Config"
+sleep 2
+cp ~/Desktop/gitclones/dotfiles/xmobar/.xmobarrc ~/
+
+echo "ST Config, build, install"
+sleep 2
+cp ~/Desktop/gitclones/dotfiles/st/* ~/Desktop/gitclones/st/
+cd ~/Desktop/gitclones/st/
+sudo make
+sudo make install
+
+
+
+
+echo " ##################"
+echo " ### ALL DONE ! ###"
+echo " ##################"
 
 
 #logout and log back into xmonad (default shortcut is Alt+shift+Enter)
