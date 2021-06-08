@@ -41,10 +41,14 @@ git clone http://git.suckless.org/st
 #sudo make 
 #sudo make install
 
-# install vim plug
-#https://github.com/junegunn/vim-plug
 
 # inside Neovim:
 #:PlugInstall
 
+#https://github.com/junegunn/vim-plug
+echo "install vim plug"
+sleep 2
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+echo "DONE for now"
