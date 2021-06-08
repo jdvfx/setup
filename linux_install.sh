@@ -71,8 +71,14 @@ cd ~/Desktop/gitclones/autoconf-ubu20.04
 bash setwallpaper.sh
 
 echo ">>> install Brave Browser"
+sleep 2
 bash install_brave.sh
 
+#https://github.com/junegunn/vim-plug
+echo "install vim plug"
+sleep 2
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 echo " ##################"
 echo " ### ALL DONE ! ###"
@@ -98,10 +104,4 @@ echo " ##################"
 # inside Neovim:
 #:PlugInstall
 
-#https://github.com/junegunn/vim-plug
-echo "install vim plug"
-sleep 2
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-echo "DONE for now"
