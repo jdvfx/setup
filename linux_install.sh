@@ -43,20 +43,24 @@ mkdir ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, st 
 git clone https://github.com/jdvfx/dotfiles.git
+git clone http://git.suckless.org/st
+
+# -- private --
 # for custom versions of Nomachine, openFortiVPN, 
 # lightweight JetBrains mono font package, wallpaper
 git clone https://github.com/jdvfx/autoconf-ubu20.04.git
-git clone http://git.suckless.org/st
 
 echo ">>> copy bashrc and update"
 sleep 2
 cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc ~/
 source ~/.bashrc
 
+# -- private --
 echo ">>> install fonts"
 sleep 2
 bash install_fonts.sh
 
+# -- private --
 echo ">>> install Nomachine and OpenFortiVPN"
 sleep 2
 bash install_nomachine_and_openfortivpn.sh
@@ -83,6 +87,7 @@ cd ~/Desktop/gitclones/st/
 sudo make
 sudo make install
 
+# -- private --
 echo ">>> set wallpaper"
 sleep 2
 cd ~/Desktop/gitclones/autoconf-ubu20.04
