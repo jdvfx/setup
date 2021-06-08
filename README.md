@@ -13,7 +13,6 @@ autoconf libssl-dev apt-transport-https brave-browser
 - install Plug for Neovim
 - configure xmonad, xmobar, neovim, bashrc
 
-
 one of my git repo is private (jdvfx/autoconf-ubu20.04)
 so some of the commands will fail and be ignored.
 they are marked with: -- private --
