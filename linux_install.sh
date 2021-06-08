@@ -54,11 +54,18 @@ echo ">>> copy bashrc and update"
 sleep 2
 cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc ~/
 source ~/.bashrc
-
-# -- private --
+ 
 echo ">>> install fonts"
 sleep 2
-bash install_fonts.sh
+cd ~/Desktop/gitclones/
+mkdir fonts
+cd fonts
+curl -LO https://github.com/JetBrains/JetBrainsMono/releases/download/v1.0.3/JetBrainsMono-1.0.3.zip
+unzip *.zip
+cd `ls --color=never -I *.zip`
+mv ttf JetBrainsMono
+sudo cp -r JetBrainsMono /usr/share/fonts/truetype/
+fc-cache -vf
 
 # -- private --
 echo ">>> install Nomachine and OpenFortiVPN"
