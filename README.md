@@ -16,3 +16,6 @@ autoconf libssl-dev apt-transport-https brave-browser
 one of my git repo is private (jdvfx/autoconf-ubu20.04)
 so some of the commands will fail and be ignored.
 they are marked with: -- private --
+
+![xmonad desktop](https://github.com/jdvfx/setup/blob/master/xmonad_screenshot.png)
+
