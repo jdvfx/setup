@@ -1,10 +1,10 @@
-Auto-config bash script to be run after a clean Ubuntu 20.04 Minimal install
-should also work with a regular install of Ubuntu 20.04 or 20.10
+Auto-config bash script to be run after a clean Ubuntu 20.04 Minimal or Arch install
+should also work with a regular install of Ubuntu 20.04, 20.10 or any Arch based distro
 
 --- What the script does:
 
-- remove SNAP (package manager)
-- install some packages:
+- remove SNAP package manager (if Ubuntu)
+- install some packages (or Arch equivalent):
 curl git firefox htop feh neovim xmonad libghc-xmonad-contrib-dev xmobar
 dmenu build-essential gnome-disk-utility scrot spotify-client
 autoconf libssl-dev apt-transport-https brave-browser
