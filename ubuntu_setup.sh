@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # AutoConfig System
 # run after Ubuntu 20.04 minimal, with XFCE minimal
@@ -27,7 +28,7 @@ sudo apt update
 INSTALL_PKGS="
     git firefox htop feh neovim xmonad libghc-xmonad-contrib-dev xmobar 
     dmenu build-essential gnome-disk-utility scrot spotify-client
-    autoconf libssl-dev apt-transport-https brave-browser
+    autoconf libssl-dev apt-transport-https brave-browser nitrogen
     "
 
 echo ">>>installing packages:"

@@ -1,35 +1,41 @@
+#!/bin/bash
 #
 # AutoConfig System
-# run after Arch
+# run after Arch or Manjaro
 #
 
-INSTALL_PKGS="
+INSTALL_PKGS_Manjaro="
     git firefox htop feh neovim xmonad xmonad-contrib xmobar
     dmenu base-devel scrot spotifyd
-    brave-browser
+    brave-browser nitrogen
     "
 
-#INSTALL_PKGS="
-    #git firefox htop feh neovim xmonad libghc-xmonad-contrib-dev xmobar 
-    #dmenu build-essential gnome-disk-utility scrot spotify-client
-    #autoconf libssl-dev apt-transport-https brave-browser
-    #"
+INSTALL_PKGS_base_Arch="
+    xorg xorg-xinit nvidia
+    "
 
 echo ">>>installing packages:"
-echo $INSTALL_PKGS
+echo $INSTALL_PKGS_base_Arch
 sleep 2
-for i in $INSTALL_PKGS; do
+for i in $INSTALL_PKGS_base_Arch; do
   sudo pacman -S $i
 done
 
+echo ">>>installing packages:"
+echo $INSTALL_PKGS_base_Manjaro
+sleep 2
+for i in $INSTALL_PKGS_base_Manjaro; do
+  sudo pacman -S $i
+done
 
-echo -e ">>> GIT clone \nSuckless ST, Bunker dotfiles & Autoconf"
+echo -e ">>> GIT clone \nSuckless ST, Bunker dotfiles & Autoconf, Yay"
 sleep 2
 mkdir ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, st 
 git clone https://github.com/jdvfx/dotfiles.git
 git clone http://git.suckless.org/st
+git clone https://aur.archlinux.org/yay-git.git
 
 #echo "installing spotify client"
 #sleep 2
