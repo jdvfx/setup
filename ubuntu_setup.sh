@@ -53,7 +53,9 @@ git clone https://github.com/jdvfx/autoconf-ubu20.04.git
 
 echo ">>> copy bashrc and update"
 sleep 2
-cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc ~/
+cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc_bunker ~/
+# add one line to the bashrc
+echo "source ~/.bashrc_bunker" >> ~/.bashrc
 source ~/.bashrc
  
 echo ">>> install fonts"

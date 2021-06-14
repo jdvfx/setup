@@ -11,11 +11,11 @@ INSTALL_PKGS_Manjaro="
     firefox feh neovim xmonad xmonad-contrib xmobar
     dmenu base-devel scrot spotifyd
     brave nitrogen gnome-disk-utility yay
-"
+    "
 
 INSTALL_PKGS_base_Arch="
     xorg xorg-xinit nvidia git htop
-"
+    "
 
 echo ">>>installing packages:"
 sleep 2
@@ -75,7 +75,7 @@ sleep 2
 mkdir ~/.xmonad/
 cp -r ~/Desktop/gitclones/dotfiles/xmonad/* ~/.xmonad/
 mkdir ~/.local/bin/
-cp -r ~/Desktop/gitclones/dotfiles/xmonad/dot_local_slash_bin/ ~/.local/bin/
+cp -r ~/Desktop/gitclones/dotfiles/xmonad/dot_local_slash_bin/* ~/.local/bin/
 
 echo ">>> Xmobar Config"
 sleep 2
@@ -101,6 +101,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 #
+
+
+echo "install nomachine"
+sleep 2
+yay -S nomachine
+
 
 echo " ##################"
 echo " ### ALL DONE ! ###"
