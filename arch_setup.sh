@@ -10,7 +10,7 @@
 INSTALL_PKGS_Manjaro="
     firefox feh neovim xmonad xmonad-contrib xmobar
     dmenu base-devel scrot spotifyd
-    brave nitrogen gnome-disk-utility yay
+    brave nitrogen gnome-disk-utility yay cheese
     "
 
 INSTALL_PKGS_base_Arch="
