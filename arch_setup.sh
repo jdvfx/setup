@@ -29,7 +29,7 @@ cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, st 
 git clone https://github.com/jdvfx/dotfiles.git
 git clone http://git.suckless.org/st
-
+git clone https://github.com/jdvfx/wallpapers.git
 
 #echo "installing spotify client"
 #sleep 2
@@ -59,6 +59,8 @@ cd `ls --color=never -I *.zip`
 mv ttf JetBrainsMono
 sudo cp -r JetBrainsMono /usr/share/fonts/truetype/
 fc-cache -vf
+
+
 
 ## -- private --
 #echo ">>> install Nomachine and OpenFortiVPN"
@@ -107,6 +109,11 @@ echo "install nomachine"
 sleep 2
 yay -S nomachine
 
+
+# set wallpaper
+echo "set wallpaper"
+sleep 2
+nitrogen --set-zoom-fill `ls --color=never ~/Desktop/gitclones/wallpapers/* | tail -1`
 
 echo " ##################"
 echo " ### ALL DONE ! ###"

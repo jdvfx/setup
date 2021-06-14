@@ -45,6 +45,8 @@ cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, st 
 git clone https://github.com/jdvfx/dotfiles.git
 git clone http://git.suckless.org/st
+git clone https://github.com/jdvfx/wallpapers.git
+
 
 # -- private --
 # for custom versions of Nomachine, openFortiVPN, 
@@ -109,7 +111,11 @@ sleep 2
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-#
+# set wallpaper
+echo "set wallpaper"
+sleep 2
+nitrogen --set-zoom-fill `ls --color=never ~/Desktop/gitclones/wallpapers/* | tail -1`
+
 
 echo " ##################"
 echo " ### ALL DONE ! ###"
