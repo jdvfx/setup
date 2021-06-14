@@ -1,41 +1,35 @@
 #!/bin/bash
 #
 # AutoConfig System
-# run after Arch or Manjaro
+# run after Manjaro or Arch
 #
 
+# already installed with Manjaro xfce minimal
+# htop, git
+
 INSTALL_PKGS_Manjaro="
-    git firefox htop feh neovim xmonad xmonad-contrib xmobar
+    firefox feh neovim xmonad xmonad-contrib xmobar
     dmenu base-devel scrot spotifyd
-    brave-browser nitrogen
-    "
+    brave nitrogen gnome-disk-utility yay
+"
 
 INSTALL_PKGS_base_Arch="
-    xorg xorg-xinit nvidia
-    "
+    xorg xorg-xinit nvidia git htop
+"
 
 echo ">>>installing packages:"
-echo $INSTALL_PKGS_base_Arch
 sleep 2
-for i in $INSTALL_PKGS_base_Arch; do
-  sudo pacman -S $i
-done
+sudo pacman -S $INSTALL_PKGS_Manjaro
+#sudo pacman -S $INSTALL_PKGS_base_Arch
 
-echo ">>>installing packages:"
-echo $INSTALL_PKGS_base_Manjaro
-sleep 2
-for i in $INSTALL_PKGS_base_Manjaro; do
-  sudo pacman -S $i
-done
-
-echo -e ">>> GIT clone \nSuckless ST, Bunker dotfiles & Autoconf, Yay"
+echo -e ">>> GIT clone \nSuckless ST, Bunker dotfiles & Autoconf"
 sleep 2
 mkdir ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, st 
 git clone https://github.com/jdvfx/dotfiles.git
 git clone http://git.suckless.org/st
-git clone https://aur.archlinux.org/yay-git.git
+
 
 #echo "installing spotify client"
 #sleep 2
@@ -49,8 +43,9 @@ git clone https://aur.archlinux.org/yay-git.git
 
 echo ">>> copy bashrc and update"
 sleep 2
-#cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc ~/
-
+cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc_bunker ~/
+# add one line to the bashrc
+echo "source ~/.bashrc_bunker" >> ~/.bashrc
 source ~/.bashrc
  
 echo ">>> install fonts"
