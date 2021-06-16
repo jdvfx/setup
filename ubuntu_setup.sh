@@ -38,13 +38,13 @@ for i in $INSTALL_PKGS; do
   sudo apt-get install -y $i
 done
 
-echo -e ">>> GIT clone \nSuckless ST, Bunker dotfiles & Autoconf"
+echo -e ">>> GIT clone :Bunker dotfiles, Autoconf, Wallpapers"
 sleep 2
 mkdir ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, st 
 git clone https://github.com/jdvfx/dotfiles.git
-git clone http://git.suckless.org/st
+#git clone http://git.suckless.org/st
 git clone https://github.com/jdvfx/wallpapers.git
 
 
@@ -92,12 +92,17 @@ echo ">>> Xmobar Config"
 sleep 2
 cp ~/Desktop/gitclones/dotfiles/xmobar/.xmobarrc ~/
 
-echo ">>> ST Config, build, install"
+#echo ">>> ST Config, build, install"
+#sleep 2
+#cp ~/Desktop/gitclones/dotfiles/st/* ~/Desktop/gitclones/st/
+#cd ~/Desktop/gitclones/st/
+#sudo make
+#Esudo make install
+echo "install Alacritty"
 sleep 2
-cp ~/Desktop/gitclones/dotfiles/st/* ~/Desktop/gitclones/st/
-cd ~/Desktop/gitclones/st/
-sudo make
-sudo make install
+sudo add-apt-repository ppa:mmstick76/alacritty 
+sudo apt install alacritty
+
 
 # -- private --
 echo ">>> set wallpaper"

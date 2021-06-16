@@ -10,7 +10,7 @@
 INSTALL_PKGS_Manjaro="
     firefox feh neovim xmonad xmonad-contrib xmobar
     dmenu base-devel scrot spotifyd
-    brave nitrogen gnome-disk-utility yay cheese
+    brave nitrogen gnome-disk-utility yay cheese alacritty
     "
 
 INSTALL_PKGS_base_Arch="
@@ -22,13 +22,13 @@ sleep 2
 sudo pacman -S $INSTALL_PKGS_Manjaro
 #sudo pacman -S $INSTALL_PKGS_base_Arch
 
-echo -e ">>> GIT clone \nSuckless ST, Bunker dotfiles & Autoconf"
+echo -e ">>> GIT clone: Bunker dotfiles, Autoconf, Wallpapers"
 sleep 2
 mkdir ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
-# bashrc, neovim, xmonad, xmobar, dmenu, st 
+# bashrc, neovim, xmonad, xmobar, dmenu 
 git clone https://github.com/jdvfx/dotfiles.git
-git clone http://git.suckless.org/st
+# git clone http://git.suckless.org/st
 git clone https://github.com/jdvfx/wallpapers.git
 
 #echo "installing spotify client"
@@ -83,12 +83,12 @@ echo ">>> Xmobar Config"
 sleep 2
 cp ~/Desktop/gitclones/dotfiles/xmobar/.xmobarrc ~/
 
-echo ">>> ST Config, build, install"
-sleep 2
-cp ~/Desktop/gitclones/dotfiles/st/* ~/Desktop/gitclones/st/
-cd ~/Desktop/gitclones/st/
-sudo make
-sudo make install
+#echo ">>> ST Config, build, install"
+#sleep 2
+#cp ~/Desktop/gitclones/dotfiles/st/* ~/Desktop/gitclones/st/
+#cd ~/Desktop/gitclones/st/
+#sudo make
+#sudo make install
 
 ## -- private --
 #echo ">>> set wallpaper"
