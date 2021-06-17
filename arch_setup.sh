@@ -88,6 +88,8 @@ echo "set wallpaper"
 sleep 2
 nitrogen --set-zoom-fill `ls --color=never ~/Desktop/gitclones/wallpapers/* | tail -1`
 
+# create screenshots dir for scrot
+mkdir ~/Pictures/screenshots
 
 
 
