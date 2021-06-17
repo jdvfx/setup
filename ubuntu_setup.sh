@@ -7,8 +7,11 @@
 echo ">>> removing SNAP!"
 sleep 2
 sudo umount /var/snap
-sudo apt purge snapd
-# note: don't install chromnium browser (it will re-install snap)
+sudo rm -rf /var/cache/snapd/
+sudo apt autoremove --purge snapd gnome-software-plugin-snap
+rm -fr ~/snap
+sudo apt-mark hold snapd
+# note: installing chromnium browser will fail
 
 echo ">>> adding SPOTIFY repo"
 sleep 2
@@ -44,13 +47,12 @@ mkdir ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, st 
 git clone https://github.com/jdvfx/dotfiles.git
-#git clone http://git.suckless.org/st
 git clone https://github.com/jdvfx/wallpapers.git
 
 
 # -- private --
 # for custom versions of Nomachine, openFortiVPN, 
-# lightweight JetBrains mono font package, wallpaper
+# lightweight JetBrains mono font package 
 git clone https://github.com/jdvfx/autoconf-ubu20.04.git
 
 echo ">>> copy bashrc and update"
@@ -102,6 +104,11 @@ echo "install Alacritty"
 sleep 2
 sudo add-apt-repository ppa:mmstick76/alacritty 
 sudo apt install alacritty
+
+echo ">>> Alacritty Config"
+sleep 2
+mkdir ~/.config/alacritty
+cp ~/Desktop/gitclones/dotfiles/alacritty/* ~/.config/alacritty
 
 
 # -- private --
