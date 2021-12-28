@@ -1,3 +1,6 @@
+# some of this is old
+`> need to update with GNU Stow, Alacritty and Nvim+LUA config `
+
 Auto-config bash script to be run after a clean Ubuntu 20.04 Minimal or Manjaro install
 should also work with a regular install of Ubuntu 20.04, 20.10 or any Arch based distro
 
