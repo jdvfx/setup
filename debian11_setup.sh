@@ -7,8 +7,8 @@ deb-src http://deb.debian.org/debian-security bullseye/updates main contrib non-
 deb http://deb.debian.org/debian bullseye-updates main contrib non-free
 deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free' > sources.list
 
-cp /etc/apt/source.list /etc/apt/source.list_backup
-cp source.list /etc/apt/source.list
+cp /etc/apt/sources.list /etc/apt/sources.list_backup
+cp sources.list /etc/apt/sources.list
 
 apt update
 apt upgrade
