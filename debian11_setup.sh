@@ -70,6 +70,17 @@ mkdir -p ~/Desktop/installs/neovim_nightly
 cd ~/Desktop/installs/neovim_nightly
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
 apt install ./nvim-linux64.deb
+#
+# install languague servers
+mkdir -p ~/Desktop/installs/lang_servers
+# rust-analyzer
+curl -LO https://github.com/rust-lang/rust-analyzer/releases/download/nightly/rust-analyzer-x86_64-unknown-linux-gnu.gz
+gunzip rust-analyzer-x86_64-unknown-linux-gnu.gz
+chmod +x rust-analyzer-x86_64-unknown-linux-gnu
+cp rust-analyzer-x86_64-unknown-linux-gnu /usr/bin/
+
+
+
 # update plugins
 nvim -c ':PackerSync'
 
