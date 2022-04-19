@@ -15,7 +15,7 @@ apt update
 apt upgrade
 
 INSTALL_PKGS="
-    git stow
+    git stow kitty nitrogen feh
     "
 
 echo ">>>installing packages:"
@@ -26,14 +26,20 @@ for i in $INSTALL_PKGS; do
 done
 
 
-echo -e ">>> GIT clone :Bunker dotfiles, Autoconf, Wallpapers"
+echo -e ">>> git clone and stow: dotfiles, wallpaper"
 sleep 2
-mkdir ~/Desktop/gitclones
+mkdir -p ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
-# bashrc, neovim, xmonad, xmobar, dmenu, st
+# bashrc, neovim, xmonad, xmobar, dmenu, kitty
 git clone https://github.com/jdvfx/dotfiles.git
 git clone https://github.com/jdvfx/wallpapers.git
+stow -t ~ kitty nvim xmobar xmonad
+mv ~/Desktop/gitclones/wallpapers/ ~/Desktop/
 
+# set wallpaper (use the first png in the folder)
+# one of those 2 lines should work: need to test on real hardware though, VM doesn't work
+#ls ~/Desktop/wallpapers/*.png | tail -1 | xargs -I % sh -c 'feh --bg-fill %'
+#nitrogen --set-zoom-fill `ls --color=never ~/Desktop/wallpapers/*.png | tail -1`
 
 
 echo ">>> copy bashrc and update"
@@ -41,6 +47,8 @@ sleep 2
 cp ~/Desktop/gitclones/dotfiles/bashrc/.bashrc_bunker ~/
 # add one line to the bashrc
 echo "source ~/.bashrc_bunker" >> ~/.bashrc
+# create dummy private bashrc (real one isn't on github)
+touch ~/.bashrc_pr
 source ~/.bashrc
 
 echo ">>> install fonts"
@@ -57,50 +65,13 @@ fc-cache -vf
 
 
 
-echo ">>> Neovim Config"
-sleep 2
-mkdir ~/.config/nvim
-cp ~/Desktop/gitclones/dotfiles/nvim/* ~/.config/nvim/
-
-echo ">>> Xmonad Config"
-sleep 2
-mkdir ~/.xmonad/
-cp -r ~/Desktop/gitclones/dotfiles/xmonad/* ~/.xmonad/
-cp -r ~/Desktop/gitclones/dotfiles/xmonad/dot_local_slash_bin/ ~/.local/bin/
-
-echo ">>> Xmobar Config"
-sleep 2
-cp ~/Desktop/gitclones/dotfiles/xmobar/.xmobarrc ~/
-
-#echo ">>> ST Config, build, install"
-#sleep 2
-#cp ~/Desktop/gitclones/dotfiles/st/* ~/Desktop/gitclones/st/
-#cd ~/Desktop/gitclones/st/
-#sudo make
-#Esudo make install
-echo "install Alacritty"
-sleep 2
-sudo add-apt-repository ppa:mmstick76/alacritty
-sudo apt install alacritty
-
-echo ">>> Alacritty Config"
-sleep 2
-mkdir ~/.config/alacritty
-cp ~/Desktop/gitclones/dotfiles/alacritty/* ~/.config/alacritty
-
-
-# -- private --
-echo ">>> set wallpaper"
-sleep 2
-cd ~/Desktop/gitclones/autoconf-ubu20.04
-bash setwallpaper.sh
-
-
-
-# set wallpaper
-echo "set wallpaper"
-sleep 2
-nitrogen --set-zoom-fill `ls --color=never ~/Desktop/gitclones/wallpapers/* | tail -1`
+# install neovim nightly
+mkdir -p ~/Desktop/installs/neovim_nightly
+cd ~/Desktop/installs/neovim_nightly
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+apt install ./nvim-linux64.deb
+# update plugins
+nvim -c ':PackerSync'
 
 # create screenshots dir for scrot
 mkdir ~/Pictures/screenshots
