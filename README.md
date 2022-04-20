@@ -11,7 +11,7 @@ TO DO:
 
 INSTALL (Debian 11):
 curl -LO https://raw.githubusercontent.com/jdvfx/setup/master/debian11_setup.sh
-# su
+/$ su
 bash debian11_setup.sh
 
 
