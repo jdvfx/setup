@@ -18,16 +18,15 @@ apt update
 apt upgrade
 
 # packages to test on debian
-# cheese gnome-disks virt-manager brave chrome
+# brave chrome
 # nordvpn openfortivpn
-# transmission-gtk 2.9
 # pdftoppm
-# img2pdf
-# ImageMagick 6.9.10-23
+# spotify
 
 
 INSTALL_PKGS="
-    git stow kitty nitrogen feh kdenlive audacity inkscape gimp"
+    git stow kitty nitrogen feh kdenlive audacity inkscape gimp gnome-disk-utility virt-manager transmission-gtk img2pdf
+    "
 
 echo "> installing packages:"
 echo $INSTALL_PKGS
@@ -96,12 +95,14 @@ mkdir -p ~/Desktop/installs/lang_servers
 # rust-analyzer
 curl -LO https://github.com/rust-lang/rust-analyzer/releases/download/nightly/rust-analyzer-x86_64-unknown-linux-gnu.gz
 gunzip rust-analyzer-x86_64-unknown-linux-gnu.gz
-chmod +x rust-analyzer-x86_64-unknown-linux-gnu
-cp rust-analyzer-x86_64-unknown-linux-gnu /usr/bin/
+mv rust-analyzer-x86_64-unknown-linux-gnu rust-analyzer
+chmod +x rust-analyzer
+cp rust-analyzer /usr/bin/
 
 # install Rust compiler / cargo / clippy / rust-docs / rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
+
 
 
 # create screenshots dir for scrot
@@ -125,10 +126,21 @@ echo " ##################"
 # python3 3.9.1
 # gimp 2.10.22
 # Inkscape 1.0.2
+# cheese 3.38.0 (webcam app)
+# gnome-disk-utility 3.38.2
+# img2pdf 0.4.0
+# transmission-gtk 3.00
+# virt-manager 3.2.0
+
+# nvidia-drivers 470. (need to check on physical hardware)
+
+
 
 # >> pre-installed with Debian 11 xfce
 # ffmpeg version 4.3.3-0
 # atril 1.24 (pdf viewer)
+# ImageMagick 6.9.11-60
+# xsane 0.999
 
 # >> optional:
 # Blender 2.83.5
