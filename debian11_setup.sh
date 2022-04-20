@@ -45,6 +45,7 @@ cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, kitty
 git clone https://github.com/jdvfx/dotfiles.git
 git clone https://github.com/jdvfx/wallpapers.git
+cd dotfiles
 stow -t ~ kitty nvim xmobar xmonad
 mv ~/Desktop/gitclones/wallpapers/ ~/Desktop/
 
