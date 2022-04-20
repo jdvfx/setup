@@ -17,9 +17,17 @@ rm sources.list
 apt update
 apt upgrade
 
+# packages to test on debian
+# cheese gnome-disks virt-manager brave chrome
+# nordvpn openfortivpn
+# transmission-gtk 2.9
+# pdftoppm
+# img2pdf
+# ImageMagick 6.9.10-23
+
+
 INSTALL_PKGS="
-    git stow kitty nitrogen feh kdenlive audacity inkscape gimp
-    "
+    git stow kitty nitrogen feh kdenlive audacity inkscape gimp"
 
 echo "> installing packages:"
 echo $INSTALL_PKGS
