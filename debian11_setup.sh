@@ -1,5 +1,8 @@
 # execute as super user: $su
 
+read -p "> Adding non-free+contrib repos > update > upgrade
+... Press a key to continue ... "
+
 echo 'deb http://deb.debian.org/debian bullseye main contrib non-free
 deb-src http://deb.debian.org/debian bullseye main contrib non-free
 deb http://deb.debian.org/debian-security bullseye/updates main contrib non-free
@@ -15,19 +18,20 @@ apt update
 apt upgrade
 
 INSTALL_PKGS="
-    git stow kitty nitrogen feh
+    git stow kitty nitrogen feh kdenlive audacity inkscape gimp
     "
 
-echo ">>>installing packages:"
+echo "> installing packages:"
 echo $INSTALL_PKGS
-sleep 2
+read -p "... Press a key to continue ..."
+
 for i in $INSTALL_PKGS; do
   apt install -y $i
 done
 
+read -p ">>> git clone and stow: dotfiles, wallpaper, bashrc
+... Press a key to continue ... "
 
-echo -e ">>> git clone and stow: dotfiles, wallpaper"
-sleep 2
 mkdir -p ~/Desktop/gitclones
 cd ~/Desktop/gitclones/
 # bashrc, neovim, xmonad, xmobar, dmenu, kitty
@@ -51,8 +55,10 @@ echo "source ~/.bashrc_bunker" >> ~/.bashrc
 touch ~/.bashrc_pr
 source ~/.bashrc
 
-echo ">>> install fonts"
-sleep 2
+
+read -p "> Installing Fonts (JetBrains Mono)
+... Press a key to continue ... "
+
 cd ~/Desktop/gitclones/
 mkdir fonts
 cd fonts
@@ -60,17 +66,22 @@ curl -LO https://github.com/JetBrains/JetBrainsMono/releases/download/v1.0.3/Jet
 unzip *.zip
 cd `ls --color=never -I *.zip`
 mv ttf JetBrainsMono
-sudo cp -r JetBrainsMono /usr/share/fonts/truetype/
+cp -r JetBrainsMono /usr/share/fonts/truetype/
 fc-cache -vf
 
 
+read -p "> Installing Neovim nightly, Packer+Plugins, Rust, Cargo, rust-analyzer,
+... Press a key to continue ... "
 
 # install neovim nightly
 mkdir -p ~/Desktop/installs/neovim_nightly
 cd ~/Desktop/installs/neovim_nightly
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
 apt install ./nvim-linux64.deb
-#
+# update plugins
+nvim -c ':PackerSync'
+
+
 # install languague servers
 mkdir -p ~/Desktop/installs/lang_servers
 # rust-analyzer
@@ -79,10 +90,10 @@ gunzip rust-analyzer-x86_64-unknown-linux-gnu.gz
 chmod +x rust-analyzer-x86_64-unknown-linux-gnu
 cp rust-analyzer-x86_64-unknown-linux-gnu /usr/bin/
 
+# install Rust compiler / cargo / clippy / rust-docs / rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
 
-
-# update plugins
-nvim -c ':PackerSync'
 
 # create screenshots dir for scrot
 mkdir ~/Pictures/screenshots
@@ -90,4 +101,31 @@ mkdir ~/Pictures/screenshots
 echo " ##################"
 echo " ### ALL DONE ! ###"
 echo " ##################"
+
+
+# packages versions on: 04/19/2022
+
+# Audacity v2.4.2
+# kdenlive 20.12.3
+# nvim v0.8.0
+# git version 2.30.2
+# kitty 0.19.3
+# xmonad
+# xmobar
+# dmenu
+# python3 3.9.1
+# gimp 2.10.22
+# Inkscape 1.0.2
+
+# >> pre-installed with Debian 11 xfce
+# ffmpeg version 4.3.3-0
+# atril 1.24 (pdf viewer)
+
+# >> optional:
+# Blender 2.83.5
+
+
+# ...................
+
+#
 
