@@ -26,6 +26,10 @@ apt upgrade
 # spotify
 
 
+# !!! not available in Debian11 repos !!!
+# xlip, git, stow, nitrogen, feh, gnome-disk-utility, virt-manager, 
+
+
 INSTALL_PKGS="
     git stow kitty nitrogen feh kdenlive audacity inkscape gimp gnome-disk-utility virt-manager transmission-gtk img2pdf
     "
