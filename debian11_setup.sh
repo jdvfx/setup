@@ -5,8 +5,10 @@ read -p "> Adding non-free+contrib repos > update > upgrade
 
 echo 'deb http://deb.debian.org/debian bullseye main contrib non-free
 deb-src http://deb.debian.org/debian bullseye main contrib non-free
+
 deb http://deb.debian.org/debian-security bullseye/updates main contrib non-free
 deb-src http://deb.debian.org/debian-security bullseye/updates main contrib non-free
+
 deb http://deb.debian.org/debian bullseye-updates main contrib non-free
 deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free' > sources.list
 
