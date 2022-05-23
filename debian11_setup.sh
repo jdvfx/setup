@@ -83,23 +83,25 @@ fc-cache -vf
 read -p "> Installing Neovim nightly, Packer+Plugins, Rust, Cargo, rust-analyzer,
 ... Press a key to continue ... "
 
-# install neovim nightly
-mkdir -p ~/Desktop/installs/neovim_nightly
-cd ~/Desktop/installs/neovim_nightly
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+# install latest stable Neovim 
+mkdir -p ~/Desktop/installs/neovim
+cd ~/Desktop/installs/neovim
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
 apt install ./nvim-linux64.deb
-# update plugins
-nvim -c ':PackerSync'
 
 
 # install languague servers
 mkdir -p ~/Desktop/installs/lang_servers
 # rust-analyzer
+
+
 curl -LO https://github.com/rust-lang/rust-analyzer/releases/download/nightly/rust-analyzer-x86_64-unknown-linux-gnu.gz
 gunzip rust-analyzer-x86_64-unknown-linux-gnu.gz
 mv rust-analyzer-x86_64-unknown-linux-gnu rust-analyzer
 chmod +x rust-analyzer
 cp rust-analyzer /usr/bin/
+
+
 
 # install Rust compiler / cargo / clippy / rust-docs / rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
