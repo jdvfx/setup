@@ -1,0 +1,119 @@
+# if installed Fedora minimal, log in then:
+
+# install XFCE's Desktop Environment
+# ( https://able.bio/KY64/minimal-installation-fedora-linux--73410e6d?fbclid=IwAR3tjcmSaGACnniIPs374hLXVEQMfhEEzzJAcQtxKrYwWSeH7QMI-zPprbAb )
+sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit network-manager-applet xorg-x11-drv-libinput mesa-dri-drivers xfce4-panel xfce4-datetime-plugin
+ xfce4-session xfce4-settings xfce4-terminal xfconf xfdesktop xfce4-appfinder xfce4-power-manager xfce4-pulseaudio-plugin pulseaudio gvfs lightdm-gtk xfwm4 NetworkManager-wifi
+
+systemctl enable lightdm; # Enable login using graphical interface
+systemctl set-default graphical.target; # Boot to graphical interface as default
+
+# --------------------------------------------------------------
+# installed XFCE desktop
+
+# first install chromium
+sudo dnf install chromium
+
+# got to: https://rpmfusion.org/Configuration
+# install free and non-free repos
+# also add: Multimedia post-install
+
+sudo dnf install alacritty git neovim virt-manager xclip cheese htop xkill gimp stow rust cargo make automake gcc gcc-c++ kernel-devel feh scrot
+
+# install nvidia drivers:
+https://www.linuxcapable.com/how-to-install-nvidia-drivers-on-fedora-36-linux/
+
+sudo dnf install xmonad dmenu xmobar
+
+cd ~/Desktop
+git clone https://github.com/jdvfx/dotfiles.git
+git clone https://github.com/jdvfx/setup.git
+git clone https://github.com/jdvfx/wallpapers.git
+
+# install a FONT
+sudo mkdir /usr/share/fonts/ibm_plex_mono
+sudo cp ~/Desktop/setup/IBM_Plex_Mono.zip /usr/share/fonts/ibm_plex_mono/
+cd /usr/share/fonts/ibm_plex_mono
+sudo unzip IBM_Plex_Mono.zip
+sudo rm IBM_Plex_Mono.zip
+fc-cache -vf
+
+cd ~/Desktop/dotfiles
+stow -t ~ alacritty
+stow -t ~ nvim
+stow -t ~ xmonad
+stow -t ~ xmobar
+cp ~/Desktop/dotfiles/bashrc/.bashrc_bunker ~/
+# edit the ~/.bashrc to: source ~/.bashrc_bunker
+
+# edit the ~/.xmonad/xmonad.hs : disable compton and nitrogen, just do a simple echo instead
+
+feh --bg-fill ~/Desktop/wallpapers/pixel_stars.png
+
+
+
+cargo install sccache
+cargo install cargo-edit
+
+add this to the ~/.bashrc
+PATH=$PATH:/home/bunker/.cargo/bin
+
+
+# install rust-analyzer
+git clone https://github.com/rust-analyzer/rust-analyzer.git && cd rust-analyzer
+cargo xtask install
+
+
+
+############################################################
+
+alacritty 0.10.1
+git 2.36
+spotify . NO
+neovim 7
+inkscape 1.2
+nitrogen 1.6.1
+gimp 2.10.30
+img2pdf 0.4.3
+transmission 3.00
+virt-manager 4.0
+xclip 0.13
+ImageMagick 6.9.12.48
+
+pdf2ppm NO
+brave NO
+chrome NO
+
+audacity 3.0.2 (last version before telemetry)
+gnome-disk-utility (gnome-disks) 42.0
+curl (already installed) 7.82.0
+
+chromium 100.0.4896.127
+
+kdenlive NO
+cheese 41.1
+python 3.10.4 (installed by default )
+Vim 8.2.49275 (installed by default)
+
+htop 3.1.2
+xsane 0.999
+xkill 1.0.5-4 (not installed by default!!!)
+
+....
+
+/etc/dnf/dnf.conf
+
+# Added for Speed:
+fastestmirror=True
+max_parallel_downloads=10
+keepcache=True
+
+// clean dnf cache
+sudo dnf clean dbcache
+
+
+// enable RPM fusion
+rpmfusion.org
+
+
+
