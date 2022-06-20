@@ -1,5 +1,4 @@
 # // install SSH key for github
-#
 ssh-keygen -t ed25519 -C yourname@email.com
 
 # start the ssh Agent
@@ -17,7 +16,17 @@ use the public key!! .pub
 cat ~/.ssh/id_ed25519.pub
 copy and paste the content in github. done
 
-only newly cloned repos will work with this new key.
+# >>> only newly cloned repos will work with this new key <<<
+
+# then set username and email
+git config --global user.name "Your name here"
+git config --global user.email "your_email@example.com"
+
+# to check existing username and email:
+git config user.name
+git config user.email
+
+
 
 
 
