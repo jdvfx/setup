@@ -1,0 +1,26 @@
+# // install SSH key for github
+#
+ssh-keygen -t ed25519 -C yourname@email.com
+
+# start the ssh Agent
+eval "$(ssh-agent -s)"
+
+# edit ssh_config and add the 2 lines underneath:
+vim ~/.ssh/config
+
+AddKeysToAgent yes
+IdentityFile ~/.ssh/id_ed25519
+
+# on github, go to settings/SSH and GPG keys
+add SSH key and give a Title (name for the key)
+use the public key!! .pub
+cat ~/.ssh/id_ed25519.pub
+copy and paste the content in github. done
+
+only newly cloned repos will work with this new key.
+
+
+
+
+
+
