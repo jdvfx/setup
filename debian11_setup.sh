@@ -1,4 +1,4 @@
-# execute as super user: $su
+# execute as root
 
 read -p "> Adding non-free+contrib repos > update > upgrade
 ... Press a key to continue ... "
@@ -26,12 +26,11 @@ apt upgrade
 # spotify
 
 
-# !!! not available in Debian11 repos !!!
-# xlip, git, stow, nitrogen, feh, gnome-disk-utility, virt-manager, 
+# not installed kdenlive
 
 
 INSTALL_PKGS="
-    git stow kitty nitrogen feh kdenlive audacity inkscape gimp gnome-disk-utility virt-manager transmission-gtk img2pdf
+    git xclip stow kitty nitrogen feh  audacity inkscape gimp gnome-disk-utility virt-manager transmission-gtk img2pdf
     "
 
 echo "> installing packages:"
