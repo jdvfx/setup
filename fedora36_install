@@ -116,4 +116,6 @@ sudo dnf clean dbcache
 rpmfusion.org
 
 
-
+# install pyright language server
+sudo dnf install python3-pip
+pip3 install pyright
