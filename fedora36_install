@@ -119,3 +119,8 @@ rpmfusion.org
 # install pyright language server
 sudo dnf install python3-pip
 pip3 install pyright
+
+
+# change hostname on Fedora:
+hostnamectl set-hostname myhostname
+
