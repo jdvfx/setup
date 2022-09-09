@@ -1,0 +1,16 @@
+
+install fedora everything
+choose minimal install
+
+after install:
+login from the TTY
+sudo dnf install git
+
+mkdir git
+cd git
+git clone https://github.com/jdvfx/setup.git
+
+
+
+
+
