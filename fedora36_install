@@ -2,6 +2,7 @@
 
 # install XFCE's Desktop Environment
 # ( https://able.bio/KY64/minimal-installation-fedora-linux--73410e6d?fbclid=IwAR3tjcmSaGACnniIPs374hLXVEQMfhEEzzJAcQtxKrYwWSeH7QMI-zPprbAb )
+
 sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit network-manager-applet xorg-x11-drv-libinput mesa-dri-drivers xfce4-panel xfce4-datetime-plugin
  xfce4-session xfce4-settings xfce4-terminal xfconf xfdesktop xfce4-appfinder xfce4-power-manager xfce4-pulseaudio-plugin pulseaudio gvfs lightdm-gtk xfwm4 NetworkManager-wifi
 
@@ -18,12 +19,10 @@ sudo dnf install chromium
 # install free and non-free repos
 # also add: Multimedia post-install
 
-sudo dnf install alacritty git neovim virt-manager xclip cheese htop xkill gimp stow rust cargo make automake gcc gcc-c++ kernel-devel feh scrot
+sudo dnf install alacritty git neovim virt-manager xclip cheese htop xkill gimp stow rust cargo make automake gcc gcc-c++ kernel-devel feh scrot sqlite xmonad dmenu xmobar nitrogen
 
 # install nvidia drivers:
 https://www.linuxcapable.com/how-to-install-nvidia-drivers-on-fedora-36-linux/
-
-sudo dnf install xmonad dmenu xmobar
 
 cd ~/Desktop
 git clone https://github.com/jdvfx/dotfiles.git
@@ -48,7 +47,8 @@ cp ~/Desktop/dotfiles/bashrc/.bashrc_bunker ~/
 
 # edit the ~/.xmonad/xmonad.hs : disable compton and nitrogen, just do a simple echo instead
 
-feh --bg-fill ~/Desktop/wallpapers/pixel_stars.png
+# change wallpaper with nitrogen
+# ~/Desktop/wallpapers/pixel_stars.png
 
 
 
