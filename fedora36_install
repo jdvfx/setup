@@ -19,7 +19,11 @@ sudo dnf install chromium
 # install free and non-free repos
 # also add: Multimedia post-install
 
-sudo dnf install alacritty git neovim virt-manager xclip cheese htop xkill gimp stow rust cargo make automake gcc gcc-c++ kernel-devel feh scrot sqlite xmonad dmenu xmobar nitrogen
+sudo dnf install alacritty git neovim virt-manager xclip cheese htop xkill gimp stow make automake gcc gcc-c++ kernel-devel feh scrot sqlite xmonad dmenu xmobar nitrogen compton
+
+# install rust and cargo via rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# 
 
 # install nvidia drivers:
 https://www.linuxcapable.com/how-to-install-nvidia-drivers-on-fedora-36-linux/
