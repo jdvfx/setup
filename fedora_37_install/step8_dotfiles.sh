@@ -1,3 +1,5 @@
+# clone dotfiles repo, setup, wallpapers
+
 echo clone GIT repos dotfiles,setup,wallpapers.
 cd ~/Desktop
 mkdir git
@@ -6,12 +8,13 @@ git clone https://github.com/jdvfx/dotfiles.git
 git clone https://github.com/jdvfx/setup.git
 git clone https://github.com/jdvfx/wallpapers.git
 
-echo install a FONT
-sudo mkdir /usr/share/fonts/ibm_plex_mono
-sudo cp ~/Desktop/git/setup/IBM_Plex_Mono.zip /usr/share/fonts/ibm_plex_mono/
-cd /usr/share/fonts/ibm_plex_mono
-sudo unzip IBM_Plex_Mono.zip
-sudo rm IBM_Plex_Mono.zip
+# TODO : check this on Fedora37
+echo install terminal FONT (SF Mono)
+sudo mkdir /usr/share/fonts/sf_mono
+sudo cp ~/Desktop/git/setup/SF_Mono_font.zip /usr/share/fonts/sf_mono/
+cd /usr/share/fonts/sf_mono
+sudo unzip SF_Mono_font.zip
+sudo rm SF_Mono_font.zip
 fc-cache -vf
 
 echo STOW alacritty,nvim,xmonad,xmobar

@@ -1,3 +1,4 @@
+
 sudo dnf install power-profiles-daemon
 systemctl unmask power-profiles-daemon.service
 systemctl start power-profiles-daemon.service
