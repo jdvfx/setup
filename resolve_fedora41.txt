@@ -1,0 +1,9 @@
+
+sudo dnf install libxcrypt-compat libcurl libcurl-devel mesa-libGLU --allowerasing
+
+cd /opt/resolve/libs
+sudo mv libglib* disabled-libraries/
+sudo mv libgio* disabled-libraries/
+sudo mv libmodule* disabled-libraries/
+sudo mv libgmodule* disabled-libraries/
+
