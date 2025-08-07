@@ -1,0 +1,31 @@
+
+# first, download launcher from sidefx.com
+# it's a .sh 65M file
+To install Houdini, go to: /opt/sidefx/launcher/bin/
+and run ./houdini_launcher
+
+# on Fedora 42 (Houdini dependency not installed by default)
+sudo dnf install libXScrnSaver
+
+# install Nvidia drivers and Cuda+OpenCL
+sudo dnf update
+sudo reboot
+
+sudo dnf install akmod-nvidia
+sudo dnf install xorg-x11-drv-nvidia-cuda
+sudo reboot
+
+# check if nvidia drivers are installed
+lsmod | grep -i nvi
+
+# check if nouveau drivers are gone
+lsmod | grep -i nou
+
+# check nvidia driver version:
+nvidia-smi
+
+# enable login screen with Xorg (if needed)
+vi /etc/gdm/custom.conf
+
+# search for available versions of the drivers
+dnf list --showduplicates *nvidia*
