@@ -16,6 +16,9 @@ PACKAGES="sway wl-clipboard wev wdisplays htop xkill alacritty stow imv lm_senso
 read -p "> install packages: $PACKAGES"
 sudo dnf install $PACKAGES
 
+read -p "> install multimedia codecs"
+sudo dnf group install multimedia
+
 read -p "> install Brave browser"
 sudo dnf install dnf-plugins-core
 sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
